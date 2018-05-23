@@ -18,8 +18,12 @@ const myLinks = () => {
   });
 };
 
-const pressEnter = () => {
-  tmdb.showResults();
+const pressEnter = (results) => {
+  $(document).keypress((e) => {
+    if (e.key === 'Enter') {
+      tmdb.showResults(results);
+    }
+  });
 };
 
 const initializer = () => {

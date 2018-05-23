@@ -18,7 +18,7 @@ const domString = (movieArray) => {
 };
 
 const printToDom = (stringz) => {
-  movieOutputDiv.append(stringz);
+  movieOutputDiv.html(stringz);
 };
 
 module.exports = {
