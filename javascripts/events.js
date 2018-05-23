@@ -21,7 +21,8 @@ const myLinks = () => {
 const pressEnter = (results) => {
   $(document).keypress((e) => {
     if (e.key === 'Enter') {
-      tmdb.showResults(results);
+      const searchWords = $('#search-bar').val().replace('', '%20');
+      tmdb.showResults(searchWords);
     }
   });
 };
