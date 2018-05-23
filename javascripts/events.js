@@ -18,8 +18,13 @@ const myLinks = () => {
   });
 };
 
-const pressEnter = () => {
-  tmdb.showResults();
+const pressEnter = (results) => {
+  $(document).keypress((e) => {
+    if (e.key === 'Enter') {
+      const searchWords = $('#search-bar').val().replace('', '%20');
+      tmdb.showResults(searchWords);
+    }
+  });
 };
 
 const initializer = () => {
