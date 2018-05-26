@@ -6,6 +6,9 @@
         "jquery": true
 
     },
+    "globals": {
+        "firebase": true
+    },
     "rules": {
         "arrow-spacing": [
             "error",
