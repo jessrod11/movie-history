@@ -1,11 +1,11 @@
 const movieOutputDiv = $('#movies');
 
-const domString = (movieArray) => {
+const domString = (movieArray, config) => {
   let movieStrang = '';
   movieArray.forEach((movie) => {
     movieStrang += `<div class="col-sm-6 col-md-4">`;
     movieStrang += `<div class="thumbnail">`;
-    movieStrang +=  ` <img src="..." alt="...">`;
+    movieStrang += ` <img src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     movieStrang += `<div class="caption">`;
     movieStrang += `<h3>${movie.original_title}</h3>`;
     movieStrang += `<p>${movie.overview}</p>`;
