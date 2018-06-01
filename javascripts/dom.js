@@ -1,6 +1,4 @@
-const movieOutputDiv = $('#movies');
-
-const domString = (movieArray, config) => {
+const domString = (movieArray, config, whereToPrint) => {
   let movieStrang = '';
   movieArray.forEach((movie, index) => {
     if (index % 3 === 0) {
@@ -10,7 +8,7 @@ const domString = (movieArray, config) => {
     movieStrang += `<div class="thumbnail movie">`;
     movieStrang += ` <img data-poster="${movie.poster_path}" src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     movieStrang += `<div class="caption">`;
-    movieStrang += `<h3 class="movie-title">${movie.original_title}</h3>`;
+    movieStrang += `<h3 class="movie-title">${movie.original_title ? movie.original_title : movie.title}</h3>`;
     movieStrang += `<p>${movie.overview}</p>`;
     movieStrang += `<p class="movie-overview"><a href="#" class="btn btn-primary" role="button">Review</a> <a href="#" class="btn btn-default addMovieToWishlist" role="button">Wishlist</a></p>`;
     movieStrang += `</div>`;
@@ -21,11 +19,11 @@ const domString = (movieArray, config) => {
       movieStrang += `</div>`;
     }
   });
-  printToDom(movieStrang);
+  printToDom(whereToPrint, movieStrang);
 };
 
-const printToDom = (stringz) => {
-  movieOutputDiv.append(stringz);
+const printToDom = (whereToPrint, stringz) => {
+  $(`#${whereToPrint}`).html(stringz);
 };
 
 module.exports = {
