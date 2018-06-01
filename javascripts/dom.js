@@ -7,12 +7,12 @@ const domString = (movieArray, config) => {
       movieStrang += `<div class="row">`;
     }
     movieStrang += `<div class="col-sm-6 col-md-4">`;
-    movieStrang += `<div class="thumbnail">`;
-    movieStrang += ` <img src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
+    movieStrang += `<div class="thumbnail movie">`;
+    movieStrang += ` <img data-poster="${movie.poster_path}" src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     movieStrang += `<div class="caption">`;
-    movieStrang += `<h3>${movie.original_title}</h3>`;
+    movieStrang += `<h3 class="movie-title">${movie.original_title}</h3>`;
     movieStrang += `<p>${movie.overview}</p>`;
-    movieStrang += `<p><a href="#" class="btn btn-primary" role="button">Review</a> <a href="#" class="btn btn-default" role="button">Wishlist</a></p>`;
+    movieStrang += `<p class="movie-overview"><a href="#" class="btn btn-primary" role="button">Review</a> <a href="#" class="btn btn-default addMovieToWishlist" role="button">Wishlist</a></p>`;
     movieStrang += `</div>`;
     movieStrang +=  `</div>`;
     movieStrang +=  `</div>`;
