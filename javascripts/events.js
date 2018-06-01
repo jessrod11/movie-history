@@ -29,7 +29,7 @@ const pressEnter = (results) => {
 };
 
 const saveMovieToWishListEvent = () => {
-  $(document).on('click', '.addMovieList', (e) => {
+  $(document).on('click', '.addMovieToWishlist', (e) => {
     const movieToAddCard = $(e.target).closest('.movie');
     const movieToAdd = {
       title: movieToAddCard.find('.movie-title').text(),
@@ -38,7 +38,7 @@ const saveMovieToWishListEvent = () => {
       rating: 0,
       isWatched: false,
     };
-    firebaseApi.saveMovieToWishList(movieToAdd)
+    firebaseApi.saveMovieToWishlist(movieToAdd)
       .then(() => {
         movieToAddCard.remove();
       })
