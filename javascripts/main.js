@@ -1,4 +1,3 @@
-console.log('stix');
 const apiKeys = require('./apiKeys');
 const events = require('./events');
 

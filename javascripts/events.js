@@ -8,11 +8,11 @@ const myLinks = () => {
       $('#myMovies').addClass('hide');
       $('#search').addClass('hide');
       $('#authScreen').removeClass('hide');
-      getAllMoviesEvent();
     } else if (e.target.id === 'movieLink') {
       $('#myMovies').removeClass('hide');
       $('#search').addClass('hide');
       $('#authScreen').addClass('hide');
+      getAllMoviesEvent();
     } else {
       $('#myMovies').addClass('hide');
       $('#search').removeClass('hide');
