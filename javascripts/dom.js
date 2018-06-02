@@ -12,7 +12,7 @@ const domString = (movieArray, config, whereToPrint, myCollectionMode = false) =
     movieStrang += `<img data-poster="${movie.poster_path}" src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     movieStrang += `<div class="caption">`;
     movieStrang += `<h3 class="movie-title">${movie.original_title ? movie.original_title : movie.title}</h3>`;
-    movieStrang += `<p>${movie.overview}</p>`;
+    // movieStrang += `<p>${movie.overview}</p>`;
     if (!myCollectionMode) {
       movieStrang += `<p><a class="btn btn-default addMovieToWishlist" role="button">Wishlist</a></p>`;
     } else if (myCollectionMode && !movie.isWatched) {
