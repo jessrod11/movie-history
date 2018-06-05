@@ -2,7 +2,7 @@ const domString = (movieArray, config, whereToPrint, myCollectionMode = false) =
   let movieStrang = '';
   movieArray.forEach((movie, index) => {
     if (index % 3 === 0) {
-      movieStrang += `<div class="row">`;
+      movieStrang += `<div class="row text-center">`;
     }
     movieStrang += `<div class="col-sm-6 col-md-4">`;
     movieStrang += `<div class="thumbnail movie" data-firebase-id="${movie.id}">`;

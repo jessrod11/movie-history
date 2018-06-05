@@ -13,7 +13,7 @@ const myLinks = () => {
       $('#search').addClass('hide');
       $('#authScreen').addClass('hide');
       getAllMoviesEvent();
-    } else if (e.target.id === 'search') {
+    } else if (e.target.id === 'searchLink') {
       $('#myMovies').addClass('hide');
       $('#search').removeClass('hide');
       $('#authScreen').addClass('hide');
@@ -23,7 +23,7 @@ const myLinks = () => {
 
 const pressEnter = (results) => {
   $(document).keypress((e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !$('#search').hasClass('hide')) {
       const searchWords = $('#search-bar').val().replace('', '%20');
       tmdb.showResults(searchWords);
     }
@@ -130,6 +130,25 @@ const filterEvents = () => {
   });
 };
 
+const authEvents = () => {
+  $('#signin-btn').click((e) => {
+    e.preventDefault();
+    const email = $('#inputEmail').val();
+    const pass = $('#inputPassword').val();
+    firebase.auth().signInWithEmailAndPassword(email, pass)
+      .then((user) => {
+        $('#myMovies').removeClass('hide');
+        $('#search').addClass('hide');
+        $('#authScreen').addClass('hide');
+        getAllMoviesEvent();
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
+  });
+};
+
 const initializer = () => {
   myLinks();
   pressEnter();
@@ -137,6 +156,7 @@ const initializer = () => {
   deleteMovieFromFirebase();
   updateMovieEvent();
   filterEvents();
+  authEvents();
 };
 
 module.exports = {
