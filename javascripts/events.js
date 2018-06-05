@@ -147,6 +147,14 @@ const authEvents = () => {
         console.error(errorMessage);
       });
   });
+  $('#register-link').click(() => {
+    $('#login-form').addClass('hide');
+    $('#registration-form').removeClass('hide');
+  });
+  $('#signin-link').click(() => {
+    $('#login-form').removeClass('hide');
+    $('#registration-form').addClass('hide');
+  });
 };
 
 const initializer = () => {
