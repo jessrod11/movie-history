@@ -20,6 +20,12 @@ const retrieveKeys = () => {
       tmdb.setKey(results.tmdb.apiKey);
       firebase.initializeApp(results.firebase);
       firebaseApi.setConfig(results.firebase);
+      firebase.auth().signInWithEmailAndPassword('jessica.rodgers11@gmail.com', 'Justin11')
+        .catch((error) => {
+          $('#signin-error-msg').text(error.message);
+          $('#signin-error').removeClass('hide');
+          console.error(error.message);
+        });
       checkLoginStatus();
     })
     .catch((err) => {
